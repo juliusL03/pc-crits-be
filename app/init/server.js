@@ -3,7 +3,7 @@ import cluster from 'cluster'
 import os from 'os'
 import {fileURLToPath} from 'url'
 import express from 'express'
-import {utils, types} from '@yachtly/finos-central-repo'
+import {log, types} from '../utils'
 
 import init from './init'
 
@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url)
 const CPUcores = os.cpus().length
 
 const {Environment} = types
-const {log} = utils
+// const {log} = utils
 
 export const setupServer = async (serverPort) => {
 	const app = express()

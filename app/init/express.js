@@ -5,13 +5,12 @@ import morgan from 'morgan'
 import cors from 'cors'
 import expressIp from 'express-ip'
 import cookieParser from 'cookie-parser'
-import {utils, types} from '@yachtly/finos-central-repo'
+import {log, types, response} from '../utils'
 
-import apiRoutes from '@/apis'
-import {applySession} from '@/utils/middleware'
+import apiRoutes from '../apis'
+import {applySession} from '../utils/middleware'
 
 const {Environment} = types
-const {log, response} = utils
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
