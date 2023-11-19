@@ -3,12 +3,12 @@ version: '3.8'
 services:
   mongodb:
     image: mongo
-    container_name: 'mongodb'
+    container_name: 'mongodb-pc-crits'
     ports:
       - '2720:27017'
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
       MONGO_INITDB_DATABASE: ${DB_NAME}
     volumes:

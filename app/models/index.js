@@ -9,7 +9,7 @@ export const User = UserModel
 // export const Organization = OrganizationModel
 
 export const connect = async () => {
-	await connectDb(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`)
+	await connectDb(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`)
 }
 
 export const disconnect = async () => disconnectDb()

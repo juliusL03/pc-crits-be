@@ -31,7 +31,7 @@ export const setupServer = async (serverPort) => {
 			log.info(`worker ${worker.process.pid} died.`, null, __filename)
 		})
 	} else {
-        await db.connect()
+  await db.connect()
 		await init(app)
 
 		const port = serverPort || process.env.PORT || '3000'
