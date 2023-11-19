@@ -28,14 +28,14 @@ export const userSchema = new Schema(
 			required: [true, 'Field `gender` is required'],
 			enum: ['Male', 'Female']
 		},
-		address: {
-			type: Schema.Types.ObjectId,
-			ref: 'Address'
-		},
-		organizations: [{
-			type: Schema.Types.ObjectId,
-			ref: 'Organization'
-		}],
+		// address: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: 'Address'
+		// },
+		// organizations: [{
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: 'Organization'
+		// }],
 		password: {
 			type: String,
 			required: [true, 'Field `password` is required']

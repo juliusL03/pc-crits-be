@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo
-    container_name: 'mongodb-pc-crits'
+    container_name: 'mongodb'
     ports:
       - '2720:27017'
     restart: always

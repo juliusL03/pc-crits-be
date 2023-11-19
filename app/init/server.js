@@ -82,8 +82,8 @@ export const setupServer = async (serverPort) => {
 	}
 }
 
-export const terminate = async () => {
-	await db.disconnect()
-}
+// export const terminate = async () => {
+// 	await db.disconnect()
+// }
 
 export default setupServer

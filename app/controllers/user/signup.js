@@ -1,5 +1,5 @@
 import {fileURLToPath} from 'url'
-import * as SignUpApi from '../../services/v1/user/signup'
+import * as api from '../../services/v1/user'
 import {handleError} from '../../utils'
 
 
@@ -9,7 +9,7 @@ export const signup = async (req, res) => {
 	const errLocation = `${__filename} #signup()`
 
 	try {
-        const response = await SignUpApi(req.body)
+        const response = await api.signup(req.body)
 
 		const {status_code: statusCode, message, data} = response
 		
