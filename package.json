@@ -8,9 +8,13 @@
   "license": "MIT",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node -r dotenv/config ./app/index.js",
-    "start:dev": "yarn lint && yarn dep:check:circ && nodemon --experimental-specifier-resolution=node --legacy-watch --trace-warnings -r dotenv/config --loader=./alias-loader.js ./app/index.js"
+    "start:dev": "yarn lint && yarn dep:check:circ && nodemon --experimental-specifier-resolution=node --legacy-watch --trace-warnings -r dotenv/config --loader=./alias-loader.js ./app/index.js",
+    "setup:docker": "export $(grep -v '^#' .env | xargs)} && docker compose up -d --build && unset $(grep -v '^#' .env | awk 'BEGIN { FS = \"=\" } ; { print $1 }')",
+    "setup:docker:test": "export $(grep -v '^#' .env.test | xargs)} && docker compose up -d --build && unset $(grep -v '^#' .env.test | awk 'BEGIN { FS = \"=\" } ; { print $1 }')",
+    "destroy:docker": "docker compose down --rmi local --volumes"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "debug": "^4.3.4",
@@ -23,6 +27,7 @@
     "i18next-fs-backend": "^2.3.0",
     "joi": "^17.11.0",
     "json-joi-converter": "^17.11.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mongoose": "^8.0.0",
     "morgan": "^1.10.0",

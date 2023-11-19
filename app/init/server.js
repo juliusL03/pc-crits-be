@@ -4,6 +4,7 @@ import os from 'os'
 import {fileURLToPath} from 'url'
 import express from 'express'
 import {log, types} from '../utils'
+import * as db from '../models'
 
 import init from './init'
 
@@ -30,6 +31,7 @@ export const setupServer = async (serverPort) => {
 			log.info(`worker ${worker.process.pid} died.`, null, __filename)
 		})
 	} else {
+        await db.connect()
 		await init(app)
 
 		const port = serverPort || process.env.PORT || '3000'
@@ -78,6 +80,10 @@ export const setupServer = async (serverPort) => {
 		app,
 		server
 	}
+}
+
+export const terminate = async () => {
+	await db.disconnect()
 }
 
 export default setupServer
