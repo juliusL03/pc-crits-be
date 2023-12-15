@@ -1,17 +1,23 @@
 import session from 'express-session'
-// import RedisStore from 'connect-redis'
-// import redis from 'redis'
+import MongoStore from 'connect-mongo'
 import i18next from './i18n'
 
 export const applySession = async (app) => {
-	// const redisClient = redis.createClient({url: `redis://${process.env.REDIS_HOST}`})
-	// redisClient.connect()
-	// const redisStore = new RedisStore({client: redisClient, prefix: 'finos.'})
+
+const storeSession = MongoStore.create({
+ mongoUrl: `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`,
+ dbName: process.env.DB_NAME,
+ collectionName: 'mySessions',
+ ttl: 114*24*60*68,
+ autoRemove: "native"
+})
+
 	app.use(
 		session({
 			name: 'pcCrits.sid',
 			store: null,
 			secret: process.env.SESSION_SECRET,
+   store: storeSession,
 			resave: false,
 			saveUninitialized: false,
 			cookie: {

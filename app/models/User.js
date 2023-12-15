@@ -3,12 +3,10 @@ import {model, Schema} from 'mongoose'
 export const userSchema = new Schema(
 	{
 		first_name: {
-			type: String,
-			required: [true, 'Field `first_name` is required']
+			type: String
 		},
 		last_name: {
-			type: String,
-			required: [true, 'Field `last_name` is required']
+			type: String
 		},
 		email: {
 			type: String,
@@ -20,13 +18,10 @@ export const userSchema = new Schema(
 			default: false
 		},
 		age: {
-			type: String,
-			required: [true, 'Field `age` is required']
+			type: String
 		},
 		gender: {
-			type: String,
-			required: [true, 'Field `gender` is required'],
-			enum: ['Male', 'Female']
+			type: String
 		},
 		// address: {
 		// 	type: Schema.Types.ObjectId,
